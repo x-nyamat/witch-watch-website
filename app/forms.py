@@ -12,6 +12,6 @@ class RegisterForm(FlaskForm):
 	name = StringField("Name:", validators=[DataRequired(), Length(max=50)])
 	phone = StringField("Phone No:", validators=[DataRequired(), Length(max=30)])
 	email = StringField("Email:", validators=[DataRequired(), Email()])
-	password = PasswordField("Password:", validators=[DataRequired(), Regexp("^[a-zA-Z0-9_\-&$@#!%^*+.]{8,30}$", message='Password must be 8 characters long and should contain letters, numbers and symbols.')])
+	password = PasswordField("Password:", validators=[DataRequired(), Regexp(r"^[a-zA-Z0-9_\-&$@#!%^*+.]{8,30}$", message='Password must be 8 characters long and should contain letters, numbers and symbols.')])
 	confirm = PasswordField("Confirm Password:",validators=[EqualTo('password', message='Passwords must match')])
 	submit = SubmitField("Register")
